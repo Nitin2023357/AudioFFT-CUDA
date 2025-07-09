@@ -1,0 +1,39 @@
+# Makefile for AudioFFT-CUDA Project
+
+# Compiler and flags
+CXX = g++
+CXXFLAGS = -std=c++11 -O2
+
+# Include and lib paths (adjust if needed)
+INCLUDES =
+LIBS = -lsndfile -lfftw3
+
+# Paths
+SRC_DIR = .
+BIN_DIR = bin
+OUT_DIR = output_data
+
+# Files
+TARGET = $(BIN_DIR)/audio_fft
+SRCS = $(SRC_DIR)/main.cpp
+
+# Default target
+all: setup $(TARGET)
+
+# Ensure bin and output folders exist
+setup:
+	mkdir -p $(BIN_DIR)
+	mkdir -p $(OUT_DIR)
+
+# Build the executable
+$(TARGET): $(SRCS)
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ $^ $(LIBS)
+
+# Run the project
+run: all
+	python3 generate_audio.py
+	$(TARGET)
+
+# Clean build and output
+clean:
+	rm -rf $(BIN_DIR) $(OUT_DIR) input_data

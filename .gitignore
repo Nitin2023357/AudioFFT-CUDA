@@ -16,6 +16,7 @@
 
 # Debugger files
 *.pdb
+*.dwo
 
 # Dynamic libraries
 *.so
@@ -32,22 +33,13 @@
 *.exe
 *.out
 *.app
-audiofft      # compiled binary if not using .exe
-
-# Debug info
-*.dwo
+audiofft     # your compiled binary (Linux/macOS)
 
 # --- Project-specific ignores ---
 
 # Ignore all generated FFT CSVs
 output_data/*.csv
 
-# Ignore audio input if you don't want to track it
-input_data/*.wav
-
-# Python __pycache__ and compiled files
+# Python cache
 __pycache__/
 *.pyc
-
-# Ignore build folders if using bin/
-bin/

@@ -1,32 +1,28 @@
-# Prerequisites
+# --- C++ Standard ignores ---
 *.d
 
-# Compiled Object files
+# Object files
 *.slo
 *.lo
 *.o
 *.obj
 
-# Precompiled Headers
+# Precompiled headers
 *.gch
 *.pch
 
 # Linker files
 *.ilk
 
-# Debugger Files
+# Debugger files
 *.pdb
 
-# Compiled Dynamic libraries
+# Dynamic libraries
 *.so
 *.dylib
 *.dll
 
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
+# Static libraries
 *.lai
 *.la
 *.a
@@ -36,6 +32,22 @@
 *.exe
 *.out
 *.app
+audiofft      # compiled binary if not using .exe
 
-# debug information files
+# Debug info
 *.dwo
+
+# --- Project-specific ignores ---
+
+# Ignore all generated FFT CSVs
+output_data/*.csv
+
+# Ignore audio input if you don't want to track it
+input_data/*.wav
+
+# Python __pycache__ and compiled files
+__pycache__/
+*.pyc
+
+# Ignore build folders if using bin/
+bin/
